@@ -21,8 +21,18 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
-
-NeoBundle 'google/vim-colorscheme-primary'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'Valloric/YouCompleteMe', {
+     \ 'build' : {
+     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+     \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+     \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+     \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+     \    }
+     \ }
+" Add or remove arguments to install.sh as necessary.
+" Additional steps might be necessary for Windows, as always. ;)
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -43,8 +53,10 @@ NeoBundleCheck
 syntax enable
 set t_Co=256
 set background=dark
+"let g:solarized_termcolors=256
 "colorscheme primary
-colorscheme 256-jungle
+"colorscheme 256-jungle
+"colorscheme solarized
 
 
 "Auto change tab type when edit makefile-------
