@@ -31,7 +31,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'Valloric/YouCompleteMe', {
 "     \ 'build' : {
@@ -77,7 +76,6 @@ NeoBundleCheck
 syntax enable
 set t_Co=256
 "set background=dark
-"let g:solarized_termcolors=256
 "colorscheme primary
 "colorscheme 256-jungle
 colorscheme harlequin
@@ -218,6 +216,29 @@ let g:SrcExpl_isUpdateTags = 0
 " Set "<F4>" key for displaying the next definition in the jump list
 " let g:SrcExpl_nextDefKey = "<F4>"
 
+" auto highlight
+" Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type z/ to toggle highlighting on/off.
+nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+    let @/ = ''
+    if exists('#auto_highlight')
+        au! auto_highlight
+        augroup! auto_highlight
+        setl updatetime=4000
+        echo 'Highlight current word: off'
+        return 0
+    else
+        augroup auto_highlight
+        au!
+        au CursorHold * let @/ ='\V\<'.escape(expand('<cword>'),'\').'\>'
+        augroup end
+        setl updatetime=500
+        echo 'Highlight current word: ON'
+        return 1
+    endif
+endfunction'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
