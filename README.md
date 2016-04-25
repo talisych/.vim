@@ -1,4 +1,4 @@
 # .vim
 My vimrc
 
-git clone https://github.com/talisych/.vim
+git clone https://github.com/talisych/.vim.git
