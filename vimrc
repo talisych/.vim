@@ -54,7 +54,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'Raimondi/delimitMate'
+" NeoBundle 'Raimondi/delimitMate'
+" NeoBundle 'chazy/cscope_maps'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
@@ -77,12 +78,14 @@ NeoBundleCheck
 syntax enable
 set t_Co=256
 "set background=dark
+"let g:solarized_termcolors=256
 "colorscheme primary
 "colorscheme 256-jungle
 colorscheme harlequin
 "colorscheme solarized
 
 "YouCompleteMe setting------------------------
+let g:ycm_disable_for_files_larger_than_kb = 100
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 "mapping
@@ -105,7 +108,8 @@ endif
 
 "Genernal Seting------------------------------
 "
-set nu
+" set nu
+set relativenumber
 set nocompatible
 set fileencoding=utf-8
 set enc=utf-8
@@ -217,7 +221,7 @@ let g:SrcExpl_isUpdateTags = 0
 " Set "<F4>" key for displaying the next definition in the jump list
 " let g:SrcExpl_nextDefKey = "<F4>"
 
-" auto highlight
+" Auto highlight
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
@@ -239,8 +243,7 @@ function! AutoHighlightToggle()
         echo 'Highlight current word: ON'
         return 1
     endif
-endfunction'
-
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
