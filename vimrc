@@ -32,7 +32,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'Valloric/YouCompleteMe', {
 "     \ 'build' : {
 "     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
