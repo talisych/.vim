@@ -32,7 +32,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'Valloric/YouCompleteMe', {
 "     \ 'build' : {
 "     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
@@ -84,6 +84,7 @@ set t_Co=256
 colorscheme harlequin
 "colorscheme solarized
 
+
 "YouCompleteMe setting------------------------
 let g:ycm_disable_for_files_larger_than_kb = 100
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -114,6 +115,13 @@ set nocompatible
 set fileencoding=utf-8
 set enc=utf-8
 set mouse=a
+
+"set cursorline
+"set cursorcolumn
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
 let &colorcolumn="80,".join(range(120,999),",")
@@ -161,25 +169,16 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " set status line
 set laststatus=2
 " enable powerline-fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
+let g:airline_symbols.linenr = ' '
 
 "NERDTree-------------------------------------
 "
