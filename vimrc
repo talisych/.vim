@@ -170,6 +170,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 set laststatus=2
 " enable powerline-fonts
 let g:airline_powerline_fonts = 0
+let g:airline_detect_whitespace=0
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
