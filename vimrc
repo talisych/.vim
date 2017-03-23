@@ -32,16 +32,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'Valloric/YouCompleteMe'
-"NeoBundle 'Valloric/YouCompleteMe', {
-"     \ 'build' : {
-"     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"     \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"     \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"     \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-"     \    }
-"     \ }
-"
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
@@ -59,9 +49,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-" NeoBundle 'Yggdroot/indentLine'
-" NeoBundle 'Valloric/ListToggle'
-" NeoBundle 'bling/vim-bufferline'
+NeoBundle 'fatih/vim-go'
 
 " Required:
 call neobundle#end()
@@ -83,17 +71,6 @@ set t_Co=256
 "colorscheme 256-jungle
 colorscheme harlequin
 "colorscheme solarized
-
-
-"YouCompleteMe setting------------------------
-let g:ycm_disable_for_files_larger_than_kb = 100
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=0
-"mapping
-"nmap <leader>gd :YcmDiags<CR>
-"nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-"nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-"nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Auto change tab type when edit makefile-------
 let _curfile = expand("%:t")
@@ -216,8 +193,7 @@ let g:SrcExpl_refreshTime = 100
 let g:SrcExpl_pluginList = [
       \ "__Tag_List__",
       \ "_NERD_tree_",
-      \ "Source_Explorer",
-      \ "__YouCompleteMe__"
+      \ "Source_Explorer"
       \  ]
 
 " Enable/Disable the local definition searching, and note that this is not
