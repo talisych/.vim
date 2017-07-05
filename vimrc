@@ -30,8 +30,10 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'roosta/srcery'
+NeoBundle 'nielsmadan/harlequin'
 "NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'Valloric/YouCompleteMe', {
 "     \ 'build' : {
