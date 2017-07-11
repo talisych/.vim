@@ -103,7 +103,8 @@ set mouse=a
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
 let &colorcolumn="80,".join(range(120,999),",")
-set list lcs=tab:\|˰,trail:~
+" set list lcs=tab:\|˰,trail:~
+set list listchars=tab:».,trail:.
 " Auto rmove trailing whitespace
 " autocmd BufWritePre * :%s/\s\+$//e
 
