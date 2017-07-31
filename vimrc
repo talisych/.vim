@@ -47,6 +47,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+
 " ############################
 " #          Color           #
 " ############################
@@ -56,9 +57,12 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'morhetz/gruvbox'
 NeoBundle 'nielsmadan/harlequin'
 " ############################
-
+"
+NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
@@ -118,8 +122,8 @@ set list listchars=tab:».,trail:.
 " #                         Hot Key                       #
 " #########################################################
 "
-map <F9>  :TagbarToggle  <CR>
-map <F10> :NERDTree      <CR>
+map <F9>  :TagbarToggle            <CR>
+map <F10> :NERDTreeTabsToggle      <CR>
 " #########################################################
 " #                     End Hot Key                       #
 " #########################################################
