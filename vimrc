@@ -89,6 +89,7 @@ set nocompatible
 set fileencoding=utf-8
 set enc=utf-8
 set mouse=a
+set nowrap
 
 " Color-setting
 syntax enable
