@@ -1,3 +1,6 @@
+" #########################################################
+" # This is a automation script to install NeoBundle.     #
+" #########################################################
 let iCanHazneobundle=1
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
@@ -7,8 +10,13 @@ if !filereadable(neobundle_readme)
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
   let iCanHazneobundle=0
 endif
+" #########################################################
+" #               End of automation script                #
+" #########################################################
 
-"NeoBundle Scripts-----------------------------
+" #########################################################
+" #                   NeoBundle Scripts                   #
+" #########################################################
 if has('vim_starting')
   if &compatible
     set nocompatible               " Be iMproved
@@ -22,16 +30,8 @@ endif
 call neobundle#begin(expand('$HOME/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
-" Required:
+" Required for NeoBundle:
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
@@ -41,15 +41,30 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'gmake',
             \    },
             \ }
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'wesleyche/SrcExpl'
-" NeoBundle 'Raimondi/delimitMate'
-" NeoBundle 'chazy/cscope_maps'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+
+" ############################
+" #          Color           #
+" ############################
+" NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'roosta/srcery'
+" NeoBundle 'morhetz/gruvbox'
+NeoBundle 'nielsmadan/harlequin'
+" ############################
+"
+NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'fatih/vim-go'
 
 " Required:
 call neobundle#end()
@@ -60,19 +75,29 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" #########################################################
+" #                 End NeoBundle Scripts                 #
+" #########################################################
 
-"Google-color-setting--------------------------
+" #########################################################
+" #                    Genernal Seting                    #
+" #########################################################
+"
+" set nu
+set relativenumber
+set nocompatible
+set fileencoding=utf-8
+set enc=utf-8
+set mouse=a
+set nowrap
+
+" Color-setting
 syntax enable
 set t_Co=256
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme primary
-"colorscheme 256-jungle
+set background=dark
 colorscheme harlequin
-"colorscheme solarized
 
-"Auto change tab type when edit makefile-------
+"Auto change tab type when edit makefile
 let _curfile = expand("%:t")
 if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk" || _curfile =~ ".*\.dts*"
 set noexpandtab
@@ -83,34 +108,26 @@ set shiftwidth=4
 endif
 "End aotu change tab type
 
-
-"Genernal Seting------------------------------
-"
-" set nu
-set relativenumber
-set nocompatible
-set fileencoding=utf-8
-set enc=utf-8
-set mouse=a
-
-"set cursorline
-"set cursorcolumn
-"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-
-
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
 let &colorcolumn="80,".join(range(120,999),",")
-set list lcs=tab:\|˰,trail:~
+set list listchars=tab:».,trail:.
 " Auto rmove trailing whitespace
 " autocmd BufWritePre * :%s/\s\+$//e
 
-"hotkey---------------------------------------
+" #########################################################
+" #                  End Genernal Seting                  #
+" #########################################################
+
+" #########################################################
+" #                         Hot Key                       #
+" #########################################################
 "
-" map <F8>  :SrcExplToggle <CR>
-map <F9>  :TagbarToggle  <CR>
-map <F10> :NERDTree      <CR>
+map <F9>  :TagbarToggle            <CR>
+map <F10> :NERDTreeTabsToggle      <CR>
+" #########################################################
+" #                     End Hot Key                       #
+" #########################################################
 
 " hot key for switch tab/buffer---------------
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -127,14 +144,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>T :enew<cr>
 nmap <leader> <C>
 
-" set hidden
-"tagbar---------------------------------------
-"
-let g:tagbar_left = 1
-let g:tagbar_singleclick = 1
-" let g:tagbar_autoshowtag = 1
-" let g:tagbar_show_visibility = 1
-
+" #########################################################
+" #                    airline setting                    #
+" #########################################################
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -159,87 +171,9 @@ endif
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '
 let g:airline_symbols.linenr = ' '
-
-"NERDTree-------------------------------------
-"
-let g:NERDTreeWinPos = 'right'
-
-"indentLine------------------------------------------------
-"let g:indentLine_char = 'c'
-let g:indentLine_color_term = 239
-let g:indentLine_concealcursor = 'vc'
-let g:indentLine_conceallevel = 2
-let g:indentLine_leadingSpaceChar = '˰'
-let g:indentLine_leadingSpaceEnabled = 1
-"let g:indentLine_fileType = ['c', 'h']
-                                        "test line
-"---------------------SrcExpl---------------------
-"
-" Set the height of Source Explorer window
-let g:SrcExpl_winHeight = 8
-
-" Set 100 ms for refreshing the Source Explorer
-let g:SrcExpl_refreshTime = 100
-
-" Set "Enter" key to jump into the exact definition context
-" let g:SrcExpl_jumpKey = "<ENTER>"
-
-" Set "Space" key for back from the definition context
-" let g:SrcExpl_gobackKey = "<SPACE>"
-
-" In order to avoid conflicts, the Source Explorer should know what plugins
-" except itself are using buffers. And you need add their buffer names
-" into below listaccording to the command \":buffers!\"
-let g:SrcExpl_pluginList = [
-      \ "__Tag_List__",
-      \ "_NERD_tree_",
-      \ "Source_Explorer"
-      \  ]
-
-" Enable/Disable the local definition searching, and note that this is not
-" guaranteed to work, the Source Explorer doesn't check the syntax for now.
-" It only searches for a match with the keyword according to command 'gd'
-let g:SrcExpl_searchLocalDef = 1
-
-" Do not let the Source Explorer update the tags file when opening
-let g:SrcExpl_isUpdateTags = 0
-
-" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to
-" create/update the tags file
-" let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
-
-" Set "<F12>" key for updating the tags file artificially
-" let g:SrcExpl_updateTagsKey = "<F12>"
-
-" Set "<F3>" key for displaying the previous definition in the jump list
-" let g:SrcExpl_prevDefKey = "<F3>"
-
-" Set "<F4>" key for displaying the next definition in the jump list
-" let g:SrcExpl_nextDefKey = "<F4>"
-
-" Auto highlight
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-    let @/ = ''
-    if exists('#auto_highlight')
-        au! auto_highlight
-        augroup! auto_highlight
-        setl updatetime=4000
-        echo 'Highlight current word: off'
-        return 0
-    else
-        augroup auto_highlight
-        au!
-        au CursorHold * let @/ ='\V\<'.escape(expand('<cword>'),'\').'\>'
-        augroup end
-        setl updatetime=500
-        echo 'Highlight current word: ON'
-        return 1
-    endif
-endfunction
+" #########################################################
+" #                End airline setting                    #
+" #########################################################
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
